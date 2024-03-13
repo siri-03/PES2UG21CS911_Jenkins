@@ -6,7 +6,7 @@ int main(void) {
   cout << "Hello, World\n";
   cout << "Hello, Jenkins\n";
   cout << "This is Siri, SRN: PES2UG21CS911, Section: 6H\n";
-  cout << "Hello, Trying Webhooks now\n";
+  cout << "Hello, Trying Webhooks\n";
   cout << "I have successfully built and run\n";
   return 0;
 }
