@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 build 'PES2UG21CS911-1'
-                sh 'g++ main1.cpp -o output'
+                sh 'g++ main2.cpp -o output'
                 archiveArtifacts artifacts: 'output', fingerprint: true
             }
         }
@@ -19,7 +19,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deployed'
-                sh 'g++ main1.cpp -o output'
             }
         }
     }
