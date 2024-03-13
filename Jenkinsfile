@@ -1,35 +1,28 @@
 pipeline {
     agent any
+
     stages {
         stage('Build') {
             steps {
-                // Compile the hello.cpp file located inside the main directory
-                sh 'g++ -o main/hello main/hello.cpp'
-                echo 'Build Stage Successful'
+                build 'PES2UG21CS911-1'
+                sh 'g++ main1.cpp -o output'
+                archiveArtifacts artifacts: 'output', fingerprint: true
             }
         }
+
         stage('Test') {
             steps {
-                // Intentional error introduced - incorrect command
-                sh './main/hello-nonexistent'
-                echo 'Test Stage Successful'
+                sh './output'
             }
         }
-        stage('Test') {
-    steps {
-        // Replace the incorrect command with a valid test command
-        sh './main/hello' // Example: Running the compiled C++ binary
-        echo 'Test Stage Successful'
-    }
-}
 
         stage('Deploy') {
             steps {
-                // Add deployment steps if needed
-                echo 'Deployment Successful'
+                echo 'Deployed'
             }
         }
     }
+
     post {
         failure {
             echo 'Pipeline failed'
